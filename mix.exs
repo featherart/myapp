@@ -14,7 +14,8 @@ defmodule Myapp.Mixfile do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger, :cowboy, :plug]
+      extra_applications: [:logger, :cowboy, :plug],
+      mod: {Myapp, []}
     ]
   end
 
@@ -22,7 +23,10 @@ defmodule Myapp.Mixfile do
   defp deps do
     [
       {:cowboy, "~> 1.1"},
-      {:plug, "~> 1.3"}
+      {:plug, "~> 1.3"},
+      {:earmark, "~> 1.2", only: :dev},
+      {:ex_doc, "~> 0.18.1", only: :dev},
+      {:httpoison, "~> 0.13.0"}
     ]
   end
 end
